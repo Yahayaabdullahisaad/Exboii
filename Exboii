@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    <style >
+        .img{
+            background-color: darkblue;
+            background-image:url('');
+            width:200px;
+            height:200px;
+            margin:auto;
+            border-radius:30%;
+            
+        }
+        .name{
+            border:none;
+            width:120px;
+            height:40px;
+            margin:10px auto;
+            font-family:Arial;
+            font-weight:bold;
+            text-shadow:1px 1px blue;
+            font-size:30px;
+            text-align: center;
+        }
+        .body{
+            border:none;
+            width:300px;
+            height:200px;
+            position:relative;
+            padding-top:10px;
+            margin:auto;
+        }
+        .old{
+            color:red;
+            font-weight:bold;
+        }
+        .even{
+            color: green;
+            font-weight:bold;
+        }
+        .p{
+            font-weight:bold
+        }
+        .rotate{
+            background-color:white;
+            width:15px;
+            height :7px;
+            position: absolute;
+            top:7px;
+            left:56%;
+            font-weight:bold;
+            text-align:center;
+            color:red;
+            
+            
+            
+            border-radius:50%;
+            border-top:4px solid blue;
+            border-bottom:4px solid blue;
+            
+            animation-name: myAnimation;
+           animation-duration: 0.4s;
+        animation-iteration-count: infinite;
+        display:;
+        overflow: hidden;
+        }
+        @keyframes myAnimation {
+      0% {
+        
+        transform: rotate(0deg);
+        
+      }
+      25% {
+        
+        transform: rotate(45deg);
+      }
+      50% {
+        
+        transform: rotate(90deg);
+      }
+      75% {
+        
+        transform: rotate(180deg);
+      }
+      100% {
+        
+        transform: rotate(360deg);
+      }
+    }
+    
+    button{
+        border:1px solid white;
+        background: darkblue;
+        color:white;
+        width:100px;
+        height:40px;
+        border-radius:20px;
+    }
+    button:active{
+        background: blue;
+    }
+    input{
+        border:1px solid blue;
+        outline:none;
+        height:40px;
+        border-radius:20px;
+        padding-left:8px;
+    }
+    input:focus {
+        outline:1px solid blue;
+        
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="img">
+        
+    </div>
+    <p class="name">
+        EX_BOII
+    </p>
+    <div class="body">
+        <input type="number" class="input">
+        <button onclick="
+   even_old();
+    ">check</button>
+        <p class="p"></p>
+        <p class="rotate"></p>
+    </div>
+    
+</body>
+<script >
+    let     input=document.querySelector('.input');
+    let p=document.querySelector('.p');
+    let rotate=document.querySelector('.rotate');
+    
+    function even_old(){
+    p.innerText='Lodding ...';
+    rotate.style.display='block';
+    
+    rotate.style.width='15px';
+    rotate.style.height='7px';
+    rotate.style.top='7px';
+    rotate.style.left='56%';
+    rotate.innerText='';
+    
+    rotate.style.borderTop='4px solid blue';
+    rotate.style.borderBottom='4px solid blue';
+    
+    
+    setTimeout(()=>{
+        let even_old=`${input.value/2}`. includes(".")?`<span class="old">${input.value}</span> this number cannot divide into two except with descimal point <b class="old">${input.value}/2=${input.value/2}</b>`:`<span class="even">${input.value}</span> this number can divide into two without descimal point <b class="even">${input.value}/2=${input.value/2}</b>`;
+        
+p.innerHTML=even_old;
+
+rotate.style.display='none';
+},7000)
+setTimeout(()=>{
+
+p.innerText='get result...';
+
+let change_color=`${input.value/2}`. includes(".")?true:false;
+    
+    rotate.style.width='30px';
+    rotate.style.height='22px';
+    rotate.style.top='100px';
+    rotate.style.left='2%';
+    rotate.innerText=input.value;
+    
+    if(change_color){
+        rotate.style.color='red';
+        rotate.style.borderTop='4px solid red';
+        rotate.style.borderBottom='4px solid red';
+    }else{
+        rotate.style.color='green';
+        rotate.style.borderTop='4px solid green';
+        rotate.style.borderBottom='4px solid green';
+    }
+},5000)
+    }
+    
+</script>
+</html>
